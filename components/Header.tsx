@@ -7,7 +7,7 @@ import { SearchIcon, ShoppingBagIcon, UserIcon} from '@heroicons/react/outline'
 
 function Header() {
   return (
-    <header className="sticky top-0 z-30 p-2 flex items-center justify-between bg-[#E7ECEE] w-full">
+    <header className="sticky top-0 z-30 p-4 flex items-center justify-between bg-[#E7ECEE] w-full">
 
       <div className="flex items-center justify-center md:w-1/5">
         <Link href="/">
