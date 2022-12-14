@@ -20,7 +20,7 @@ function Landing() {
             </span>
         </h1>
 
-        <div>
+        <div className="space-x-8">
         <Button title={"Buy Now"} />
         <a className="link">Learn More</a>
         </div>
