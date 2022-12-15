@@ -26,7 +26,7 @@ function Landing() {
         </div>
 
       </div>
-      <div className="transition-all duration-500 relative w-[450px] h-[450px] lg:w-[600px] lg:h-[650px] hidden md:inline">
+      <div className="select-none transition-all duration-500 relative w-[450px] h-[450px] lg:w-[600px] lg:h-[650px] hidden md:inline">
         <Image src={"/iphone.png"} className="object-contain" alt="iphone" fill={true} draggable={false} />
       </div>
 
