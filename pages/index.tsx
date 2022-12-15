@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Header from '../components/Header'
 import Landing from '../components/Landing'
 import { Tab } from '@headlessui/react'
-import { getEnabledCategories } from 'trace_events'
+
 
 const Home: NextPage = () => {
   return (
