@@ -1,13 +1,8 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import '../styles/globals.css'
+import type { AppProps } from 'next/app'
 
-type Data = {
-  categories: Category[];
+function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
 }
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  //const categories = await Sanityclient.fetch(query);
-}
+export default MyApp
