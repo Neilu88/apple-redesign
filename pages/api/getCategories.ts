@@ -1,6 +1,13 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
 
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { groq } from 'next-sanity';
+import { sanityClient} from "../../sanity"
+
+const query = groq`*[_type == "category"] {
+  id,
+  ...
+}`;
 
 type Data = {
   categories: Category[]
@@ -11,5 +18,6 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const categories = await sanityClient.fetch(query);
-  
+  console.log(categories);
+  res.status(200).json({ categories });
 }
