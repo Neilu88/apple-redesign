@@ -17,7 +17,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const categories = await sanityClient.fetch(query);
-  console.log(categories);
-  res.status(200).json({ categories });
+  const categories = await sanityClient.fetch(query)
+  
+  res.status(200).json({ categories })
 }

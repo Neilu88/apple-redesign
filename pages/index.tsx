@@ -1,22 +1,20 @@
-import type { GetServerSideProps } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import Header from '../components/Header'
 import Landing from '../components/Landing'
 import { Tab } from '@headlessui/react'
 import { fetchCategories } from '../utils/fetchCategories'
 
 interface Props {
-  categories: Category[];
-};
+  categories: Category[]
+}
 
-const Home = ({categories} : Props) => {
-  console.log(categories);
+const Home: NextPage<Props> = ({categories}) => {
   return (
-    <div className="">
+    <div>
       <Head>
         <title>Beast</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href='/logo.png' />
       </Head>
 
       <Header />
@@ -36,7 +34,7 @@ const Home = ({categories} : Props) => {
                 <Tab
                   key={category._id}
                   id={category._id}
-                  className={({ selected }) =>
+                  className={({selected}) =>
                     `whitespace-nowrap rounded-t-lg py-3 px-5 text-sm font-light outline-none md:py-4 md:px-6 md:text-base ${
                       selected
                         ? "borderGradient bg-[#35383C] text-white"
@@ -66,10 +64,10 @@ const Home = ({categories} : Props) => {
 export default Home
 
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const categories = await fetchCategories()
 
   return {
     props: {categories},
-  };
-};
+  }
+}
