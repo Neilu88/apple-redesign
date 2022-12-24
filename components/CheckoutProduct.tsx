@@ -33,6 +33,7 @@ function CheckoutProduct({id, items}: Props) {
 
 
         <div className="flex flex-1 items-end lg:items-center">
+            
             <div className="flex-1 space-y-4">
                 <div className="flex flex-col gap-x-8 text-xl lg:flex-row lg:text-2xl">
                     <h4 className="font-semibold lg:w-96">{items[0].title}</h4>
@@ -46,6 +47,8 @@ function CheckoutProduct({id, items}: Props) {
                     <ChevronDownIcon className="h-6 w-6" />
                 </p>
             </div>
+
+
             <div className="flex flex-col items-end space-y-4">
                 <h4 className="text-xl font-semibold lg:text-2xl">
                     <Currency
@@ -60,6 +63,7 @@ function CheckoutProduct({id, items}: Props) {
                     Remove
                 </button>
             </div>
+
         </div>
     </div>
   )
