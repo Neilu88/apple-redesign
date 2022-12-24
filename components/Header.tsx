@@ -33,9 +33,11 @@ function Header() {
 
         <Link href="/checkout">
           <div className="relative cursor-pointer select-none">
-            <span className="text-white text-[10px] z-50 absolute h-4 w-4 flex items-center justify-center rounded-full -top-1 -right-1 bg-gradient-to-r from-pink-500 to-purple-500">
-              {items.length}
-            </span>
+            {items.length > 0 && (
+              <span className="text-white text-[10px] z-50 absolute h-4 w-4 flex items-center justify-center rounded-full -top-1 -right-1 bg-gradient-to-r from-pink-500 to-purple-500">
+                {items.length}
+              </span>)}
+            
             <ShoppingBagIcon className="headerIcon" />
           </div>
         </Link>
