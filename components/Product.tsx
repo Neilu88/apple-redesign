@@ -7,10 +7,13 @@ interface Props {
     product: Product;
 }
 function Product({ product }: Props) {
+    const addItemToBasket = () => {
+
+    }
   return (
     <div className="md:w-[400px] p-6 flex flex-col md:p-10 space-y-3 select-none w-[320px] h-full  rounded-xl bg-[#35383C]">
         <div className="relative h-64 md:h-72 w-full">
-            <Image src={urlFor(product.image[0]).url()} alt="product image" layout="fill" objectFit='contain' draggable={false} />
+            <Image className="object-contain" src={urlFor(product.image[0]).url()} alt="product image" fill={true} draggable={false} />
         </div>
         
         <div className="flex flex-1 items-center justify-between">
@@ -23,7 +26,7 @@ function Product({ product }: Props) {
                 </p>
             </div>
             <div className="flex flex-shrink-0 items-center justify-center h-16 w-16 cursor-pointer rounded-full bg-gradient-to-r from-pink-500 to-violet-500 md:h-[70px] md:w-[70px]">
-                <ShoppingCartIcon className='h-8 w-8 text-white' />
+                <ShoppingCartIcon className='h-8 w-8 text-white' onClick={addItemToBasket} />
             </div>
         </div>
         
