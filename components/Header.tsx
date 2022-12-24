@@ -4,8 +4,11 @@ import React from 'react'
 import logo from '../public/logo.png'
 
 import { SearchIcon, ShoppingBagIcon, UserIcon} from '@heroicons/react/outline'
-
+import { useSelector } from "react-redux";
+import { selectBasketItems } from '../redux/basketSlice'
 function Header() {
+  const session = false;
+  const items = useSelector(selectBasketItems);
   return (
     <header className="sticky top-0 z-30 p-2 flex items-center justify-between bg-[#E7ECEE] w-full">
 
@@ -31,7 +34,7 @@ function Header() {
         <Link href="/checkout">
           <div className="relative cursor-pointer select-none">
             <span className="text-white text-[10px] z-50 absolute h-4 w-4 flex items-center justify-center rounded-full -top-1 -right-1 bg-gradient-to-r from-pink-500 to-purple-500">
-              5
+              {items.length}
             </span>
             <ShoppingBagIcon className="headerIcon" />
           </div>
@@ -40,7 +43,7 @@ function Header() {
         <UserIcon className="headerIcon" />
 
       </div>
-
+    
     </header>
   )
 }
