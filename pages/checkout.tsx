@@ -90,7 +90,7 @@ function Checkout() {
                         
                         <div className="flex justify-between">
                             <p>Subtotal</p>
-                            <p><Currency quantity={basketTotal} currency="USD" /></p>
+                            <p>${basketTotal}</p>
                         </div>
 
                         <div className="flex justify-between">
@@ -113,7 +113,7 @@ function Checkout() {
                       <div className="flex justify-between pt-4 text-xl font-semibold">
                         <h4>Total</h4>
                         <h4>
-                          <Currency quantity={basketTotal} currency="USD" />
+                          ${basketTotal}
                         </h4>
                       </div>
 
@@ -143,7 +143,7 @@ function Checkout() {
                         <div className="md:order-2 flex flex-1 flex-col space-y-10 items-center rounded-xl bg-gray-200 p-8 py-12 text-center">
                           <h4 className="mb-4 flex flex-col text-xl font-semibold">
                             Pay in full 
-                            <span><Currency quantity={basketTotal} currency="USD" /></span>
+                            <span>${basketTotal}</span>
                             
                           </h4>
 
