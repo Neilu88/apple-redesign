@@ -6,7 +6,6 @@ import { useSelector } from "react-redux"
 import Button from '../components/Button'
 import { useRouter } from 'next/router'
 import CheckoutProduct from '../components/CheckoutProduct'
-import Currency from "react-currency-formatter";
 import { ChevronDownIcon } from '@heroicons/react/outline'
 import Stripe from "stripe"
 import { fetchPostJSON } from '../utils/api-helpers'
