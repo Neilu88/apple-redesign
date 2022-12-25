@@ -6,8 +6,11 @@ import logo from '../public/logo.png'
 import { SearchIcon, ShoppingBagIcon, UserIcon} from '@heroicons/react/outline'
 import { useSelector } from "react-redux";
 import { selectBasketItems } from '../redux/basketSlice'
+import {signIn, signOut, useSession} from "next-auth/react"
+
+
 function Header() {
-  //const { data: session } = useSession();
+  const { data: session } = useSession();
   const items = useSelector(selectBasketItems);
 
   return (
@@ -43,7 +46,7 @@ function Header() {
           </div>
         </Link>
 
-        {/* session ? (
+        {session ? (
           <Image
             src={
               session.user?.image ||
@@ -53,11 +56,11 @@ function Header() {
             className="cursor-pointer rounded-full"
             width={34}
             height={34}
-            //onClick={() => signOut()}
+            onClick={() => signOut()}
           />
         ) : (
           <UserIcon className="headerIcon" onClick={() => signIn()} />
-        ) */}
+        )}
       </div>
     </header>
   );
