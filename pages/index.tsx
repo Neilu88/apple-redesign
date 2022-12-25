@@ -21,8 +21,8 @@ const Home: NextPage<Props> = ({categories, products}) => {
   return (
     <div>
       <Head>
-        <title>Beast</title>
-        <link rel="icon" href='/logo.png' />
+        <title>Apple</title>
+        <link rel="icon" href='/favicon.ico' />
       </Head>
 
       <Header />

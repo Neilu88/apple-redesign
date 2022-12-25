@@ -58,7 +58,8 @@ function Checkout() {
   return (
     <div className="min-h-screen overflow-hidden bg-[#E7ECEE]">
       <Head>
-        <title>Cart - Beast</title>
+        <title>Cart - Apple</title>
+        <link rel="icon" href='/favicon.ico' />
       </Head>
 
       <Header />
