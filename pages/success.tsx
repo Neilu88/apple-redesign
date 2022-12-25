@@ -10,6 +10,7 @@ import logo from '../public/logo.png'
 import Currency from "react-currency-formatter";
 import { GetServerSideProps } from 'next';
 import { fetchLineItems } from '../utils/fetchLineItems';
+import {useSession} from "next-auth/react"
 
 interface Props {
     products: StripeProduct[]
@@ -22,7 +23,7 @@ function Success({products}: Props) {
   const [mounted, setMounted] = useState(false);
   const isTabletOrMobile = useMediaQuery({query: "(max-width: 1024px)"})
   const [showOrderSummary, setShowOrderSummary] = useState(false);
-  
+  const { data: session } = useSession();
 
   useEffect(()=>{
     setMounted(true);
@@ -40,7 +41,7 @@ function Success({products}: Props) {
   return (
     <div>
       <Head>
-        <title>Thank Your! - Apple</title>
+        <title>Thank You! - Apple</title>
         <link rel="icon" href='/favicon.ico' />
       </Head>
       <header className="mx-auto max-w-xl">
@@ -81,7 +82,7 @@ function Success({products}: Props) {
                 <p className="text-sm text-gray-600">Order #{session_id?.slice(-5)}</p>
                 <h4 className="text-lg">
                     Thank you{" "}
-                    {/* {session ? session.user?.name?.split(" ")[0] : "Guest"} */}
+                    {session ? session.user?.name?.split(" ")[0] : "Guest"}
                 </h4>
             </div>
         </div>
