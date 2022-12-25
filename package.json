@@ -11,6 +11,7 @@
     "@reduxjs/toolkit": "^1.9.1",
     "@sanity/cli": "^3.0.6",
     "@sanity/image-url": "^1.0.1",
+    "@stripe/stripe-js": "^1.46.0",
     "next": "latest",
     "next-sanity": "^3.1.5",
     "prettier-plugin-tailwind": "^2.2.12",
@@ -19,6 +20,7 @@
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.0",
     "react-redux": "^8.0.5",
+    "stripe": "^11.5.0",
     "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {

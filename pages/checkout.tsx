@@ -8,6 +8,9 @@ import { useRouter } from 'next/router'
 import CheckoutProduct from '../components/CheckoutProduct'
 import Currency from "react-currency-formatter";
 import { ChevronDownIcon } from '@heroicons/react/outline'
+import Stripe from "stripe"
+import { fetchPostJSON } from '../utils/api-helpers'
+import getStripe from "../utils/get-stripejs";
 
 
 function Checkout() {
@@ -25,7 +28,32 @@ function Checkout() {
     }, {} as { [key: string]: Product[]})
     setGroupedItemsInBasket(groupedItems);
   }, [items])
+  
+  const [loading, setLoading] = useState(false)
 
+  const createCheckoutSession = async () => {
+    setLoading(true);
+
+    const checkoutSession: Stripe.Checkout.Session = await fetchPostJSON("/api/checkout_sessions", {
+      items: items,
+    });
+
+    // Internal Server Error
+    if ((checkoutSession as any).statusCode == 500) {
+      console.error((checkoutSession as any).message);
+    }
+
+    // Redirect to checkout
+    const stripe = await getStripe();
+    const {error} = await stripe!.redirectToCheckout ({
+      sessionId: checkoutSession.id,
+    })
+
+    console.warn(error.message);
+
+    setLoading(false);
+
+  };
 
   return (
     <div className="min-h-screen overflow-hidden bg-[#E7ECEE]">
@@ -120,10 +148,10 @@ function Checkout() {
 
                           <Button 
                             noIcon
-                            //loading={loading}
+                            loading={loading}
                             title="Check Out"
                             width="w-full"
-                            //onClick={createCheckoutSession}
+                            onClick={createCheckoutSession}
                           />
 
                         </div>
